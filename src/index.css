@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
+
+  /* Brand forest green */
+  --color-brand-50: #eef5f1;
+  --color-brand-100: #d6e7dd;
+  --color-brand-200: #aacdbb;
+  --color-brand-300: #79ad94;
+  --color-brand-400: #4a8c70;
+  --color-brand-500: #2c6f54;
+  --color-brand-600: #155a40;
+  --color-brand-700: #0f4d3a;
+  --color-brand-800: #0a3a2c;
+  --color-brand-900: #062a1f;
+
+  /* Warm cream / paper */
+  --color-cream-50: #fdfaf0;
+  --color-cream-100: #faf3e0;
+  --color-cream-200: #f5edd8;
+  --color-cream-300: #ecdfbe;
+  --color-cream-400: #d9c89a;
+  --color-cream-500: #b8a574;
+
+  /* Gold accent */
+  --color-gold-300: #f5d97a;
+  --color-gold-400: #f4c95d;
+  --color-gold-500: #e0b642;
+  --color-gold-600: #b8932f;
+
+  /* Ink (text) */
+  --color-ink-500: #7a857e;
+  --color-ink-700: #4a554e;
+  --color-ink-800: #2a342e;
+  --color-ink-900: #1f2a24;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-cream-50 text-ink-800 antialiased;
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
