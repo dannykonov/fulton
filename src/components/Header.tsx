@@ -1,21 +1,38 @@
+import { hrefFor, navigate } from '../lib/nav'
+
 export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-cream-300/60 bg-cream-50/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-2xl font-bold tracking-[0.18em] text-brand-700">
+        <a
+          href={hrefFor('/')}
+          onClick={(e) => {
+            e.preventDefault()
+            navigate('/')
+          }}
+          className="text-2xl font-bold tracking-[0.18em] text-brand-700"
+        >
           FULTON
         </a>
 
         <nav className="hidden items-center gap-9 text-sm font-medium text-ink-700 md:flex">
-          {['Shop', 'Comfort Quiz', 'Reviews', 'FAQ'].map((label) => (
-            <button
-              key={label}
-              type="button"
-              onClick={(e) => e.preventDefault()}
-              className="cursor-default bg-transparent transition hover:text-brand-700"
+          {[
+            { label: 'Shop', path: '/product' },
+            { label: 'Comfort Quiz', path: null },
+            { label: 'Reviews', path: null },
+            { label: 'FAQ', path: null },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.path ? hrefFor(item.path) : '#'}
+              onClick={(e) => {
+                e.preventDefault()
+                if (item.path) navigate(item.path)
+              }}
+              className="bg-transparent transition hover:text-brand-700"
             >
-              {label}
-            </button>
+              {item.label}
+            </a>
           ))}
         </nav>
 
